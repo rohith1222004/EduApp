@@ -1,0 +1,82 @@
+/* Nav Bar */
+.navbar {
+    background-color: #222;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+  }
+  
+  .navbar__logo {
+    width: 4vw;
+    height: auto;
+  }
+  
+  .navbar__menu {
+    display: flex;
+    justify-content: space-between;
+    width: 25vw;
+  }
+  
+  .navbar__menu a:hover {
+    color: #006CEC;
+  }
+
+  /* Remainders */
+  .remaindersDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .remainderCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .remainderCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 85vw;
+    background-color: #222;
+    padding: 30px;
+  }
+
+  .remainderCard__title p {
+    margin-top: 10px;
+  }
+
+  .remainderCard__button {
+    margin-top: 30px;
+  }
+
+  .cancelButton {
+    background-color: #222;
+    color: #c4c4c4;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .completedButton {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #006CEC;
+    background-color: #006CEC;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 20px;
+}
