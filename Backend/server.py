@@ -17,7 +17,6 @@ CORS(app)
 
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 # Allowed video file extensions
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mkv', 'mov', 'wmv'}
 
@@ -57,6 +56,7 @@ def OfflineVideoUpload():
 def upload():
     global ytvectorDB
     url = request.json.get('url')
+    
     VIDEO_SAVE_PATH = "uploads/"
     AUDIO_SAVE_PATH = "audios/"
 
@@ -75,9 +75,15 @@ def upload():
         return jsonify({"message": "An error occurred while downloading the video in the server"})
 
     video_transcript_splits = ExtractAudio.createTranscriptionWithSplits()
-    ytvectorDB = CreateEmbeddings.createEmbeddingsVector(
-        video_transcript_splits)
+
+    print(video_transcript_splits)
+
+    ytvectorDB = CreateEmbeddings.createEmbeddingsVector(video_transcript_splits)
+    
+
     return jsonify({"status": "success"})
+
+
 
 
 @app.route("/askVideoFileQuery", methods=["POST"])
