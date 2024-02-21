@@ -10,10 +10,15 @@ from pytube import YouTube
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 import json
+from langchain_community.vectorstores import Bagel
+import time
+
 
 
 app = Flask(__name__)
 CORS(app)
+
+
 
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -55,6 +60,11 @@ def OfflineVideoUpload():
 @app.route("/uploadLink", methods=["POST"])
 def upload():
     global ytvectorDB
+
+    if 'ytvectorDB' in globals():
+        ytvectorDB.delete_cluster()
+        print("CALLE DELETE CLUSTEER")
+
     url = request.json.get('url')
     
     VIDEO_SAVE_PATH = "uploads/"
@@ -79,8 +89,8 @@ def upload():
     print(video_transcript_splits)
 
     ytvectorDB = CreateEmbeddings.createEmbeddingsVector(video_transcript_splits)
-    
-
+    print("BEFORE",ytvectorDB)
+        
     return jsonify({"status": "success"})
 
 
@@ -131,7 +141,8 @@ def YTVideoQuery():
 
 @app.route("/pdf", methods=["POST"])
 def pdf():
-    pdf = "give me the formula alone."
+    # pdf = "give me the formula alone."
+    pf = "Generate a notes."
     pdfGeneration = qa_chain.run(pdf)
     pdfFormated = pdfGeneration.replace("\n", "<br>")
     return jsonify(pdfFormated)

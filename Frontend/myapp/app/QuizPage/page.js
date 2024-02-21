@@ -30,6 +30,16 @@ function QuizPage() {
       setInputValue('');
     }
   };
+  const hanleFormulaClick = (event) =>{
+    event.preventDefault();
+    console.log("formula click"); 
+    axios.post("http://127.0.0.1:5001/pdf").then(res => {
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+  
   
   return (
     <div>
@@ -47,7 +57,7 @@ function QuizPage() {
           <a href="/">Dashboard</a>
           {/* <a href="/Learn">Learn</a> */}
           <a href="/QuizPage">Quiz</a>
-          <a href="#">Formula</a>
+          <a onClick={hanleFormulaClick}>Formula</a>
           <a href="/Remainders">Remainders</a>
         </div>  
       </div>
@@ -87,7 +97,6 @@ function QuizPage() {
                 </div>
               ))}
             </div>
-
             <div className={styles.sendMessage}>
               <input
                 className={styles.sendMessage__input}
@@ -101,6 +110,7 @@ function QuizPage() {
               </button>
             </div>
           </div>
+          
         </div>
       </div>
 

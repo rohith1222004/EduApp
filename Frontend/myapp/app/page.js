@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation'
 import YouTube from "react-youtube";
 
 import axios from 'axios';
+import { LinearGradient } from 'react-text-gradients'
+
 
 
 export default function Home() {
@@ -47,9 +49,9 @@ export default function Home() {
       console.log(err);
       setLoading(false);
     })
-
   }
   
+
   const files = acceptedFiles.map(file => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
@@ -59,6 +61,7 @@ export default function Home() {
   return (
     <div>
       {/* Nav Bar */}
+      <div className={styles.navbar_wrap}>
       <div className={styles.navbar}>
         <div>
           <Image 
@@ -72,7 +75,8 @@ export default function Home() {
           <a href="#">Dashboard</a>
           {/* <a href="/Learn">Learn</a> */}
           <a href="/QuizPage">Quiz</a>
-          <a href="#">Formula</a>
+          <a href="#" onClick={() =>{console.log("hello")}}>Formula</a>
+          {/* <button onClick={() =>{console.log("hello")}}>Formula</button> */}
           <a href="/Remainders">Remainders</a>
         </div>  
       </div>
@@ -80,7 +84,10 @@ export default function Home() {
       {/* Video Link Paste / Upload Section */}
       <div className={styles.videoUpload}>
         <div className={styles.videoUpload__title}>
-          <h1>Video Link Repository: Dive Deeper into the Content</h1>
+          {/* <h1>Video Link Repository: Dive Deeper into the Content</h1> */}
+          <LinearGradient gradient={['to left', '#17acff ,#ff68f0']} style={{fontSize:80,fontWeight:900}} >
+              Dive Deeper into the Content
+            </LinearGradient>
         </div>  
 
         <div className={styles.videoUpload__input}>
@@ -128,6 +135,7 @@ export default function Home() {
             <button className={styles.videoUpload__button} onClick={router.push(`/Learn/?ytlink=${videoLink}`)}>Ask queries!</button>
           }          
         </div>
+      </div>
       </div>
     </div>
   )

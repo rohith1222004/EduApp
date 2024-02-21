@@ -1,13 +1,22 @@
 /* Nav Bar */
+.navbar_wrap{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .navbar {
+  /* background-color: #1A1A2E; */
   background-color: #222;
   height: 10vh;
+  width: 95%;
+  margin-top: 2vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2vw;
+  border-radius: 20px;
 }
-
 .navbar__logo {
   width: 4vw;
   height: auto;

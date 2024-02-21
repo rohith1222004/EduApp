@@ -5,7 +5,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 # openai.api_key = "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"
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='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')
 
 
 def extractAudio(video_file_path):

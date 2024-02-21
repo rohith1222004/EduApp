@@ -7,7 +7,7 @@ from langchain_community.vectorstores import Bagel
 
 
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 embeddings = OpenAIEmbeddings()
 
@@ -17,3 +17,4 @@ def createEmbeddingsVector(splits):
     db = Bagel.from_texts(cluster_name="testing", texts=splits)
     print(db)
     return db
+
