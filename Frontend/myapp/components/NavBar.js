@@ -2,9 +2,11 @@ import styles from '../app/page.module.css'
 import logo from '../public/logo.png'
 import Image from 'next/image'
 import axios from 'axios';
+import { jsPDF } from "jspdf";
 
 
 export function NavBar() {
+  const doc = new jsPDF();
   const handleFormulaClick = () =>{
     console.log("formula click"); 
     axios.post("http://127.0.0.1:5001/pdf").then(res => {

@@ -1,5 +1,6 @@
 "use client"
 
+import axios from 'axios';
 // import { useState, useEffect } from 'react';
 
 // const RecordVoice = () => {
@@ -170,18 +171,32 @@
 // export default RecordVoice;
 
 
+
+
 import React, { useState, useEffect } from 'react';
+import { useSpeechSynthesis } from 'react-speech-kit';
 
 const VoiceTranscript = () => {
-  const [recording, setRecording] = useState(false);
 
+  const [recording, setRecording] = useState(false);
+  const { speak } = useSpeechSynthesis();
+  let recognition
   useEffect(() => {
+    // axios.get('http://127.0.0.1:5001/voice')
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
+
     if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
       console.error("Speech recognition not supported by the browser");
       return;
     }
-
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+   
+    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.continuous = true;
     recognition.lang = 'en-US';
 
@@ -219,7 +234,21 @@ const VoiceTranscript = () => {
 
   const wake = () => {
     console.log("Wake word activated");
+
+    axios.get('http://127.0.0.1:5001/voice')
+    .then(function (response) {
+      console.log(response);
+
+      
+
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   }
+
 
   const end = () => {
     console.log("Session Ended");
@@ -234,3 +263,6 @@ const VoiceTranscript = () => {
 };
 
 export default VoiceTranscript;
+
+
+
