@@ -8,7 +8,7 @@ from langchain.vectorstores import LanceDB
 
 
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 embeddings = OpenAIEmbeddings()
 

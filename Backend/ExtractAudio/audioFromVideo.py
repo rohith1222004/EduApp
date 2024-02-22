@@ -4,7 +4,7 @@ from moviepy.editor import VideoFileClip
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='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')
 
 
 def extractAudio(video_file_path):
