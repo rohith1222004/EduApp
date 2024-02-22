@@ -13,6 +13,9 @@ import json
 from langchain_community.vectorstores import Bagel
 import time
 
+import gtts  
+# from playsound import playsound 
+import pyttsx3
 
 
 app = Flask(__name__)
@@ -151,18 +154,57 @@ def pdf():
 
 @app.route("/quiz", methods=["POST"])
 def quiz():
-    quiz = 'give me 3 multiple choice question using provided context in json array format.The json format should be like this[{"question" :"","options":[{"a":"option1","b":"option2",...}],"answer":"<correct-answer>"},{"question" :"","options":[{"a":"option1","option2":"",...}],"answer":"<correct-answer>"}...]'
-    qa_chain = RetrievalQA.from_chain_type(
-        llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0),
-        chain_type="stuff",
-        retriever=ytvectorDB.as_retriever(),
-    )
+    # quiz = 'give me 3 multiple choice question using provided context in json array format.The json format should be like this[{"question" :"","options":[{"a":"option1","b":"option2",...}],"answer":"<correct-answer>"},{"question" :"","options":[{"a":"option1","option2":"",...}],"answer":"<correct-answer>"}...]'
+    # qa_chain = RetrievalQA.from_chain_type(
+    #     llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0),
+    #     chain_type="stuff",
+    #     retriever=ytvectorDB.as_retriever(),
+    # )
 
-    quizquestion = qa_chain.run(quiz)
-    print(quizquestion)
-    questionjson = json.loads(quizquestion)
+    # quizquestion = qa_chain.run(quiz)
+    # print(quizquestion)
+    # questionjson = json.loads(quizquestion)
+
+    # sample data
+    questionjson = json.loads([
+  {
+      "question": "What is the purpose of the flattened layer in a neural network?",
+      "options": [
+          {"a": "To convert the input image into a one-dimensional array"},
+          {"b": "To add more layers to the neural network"},
+          {"c": "To optimize the loss function"}
+      ],
+      "answer": "a"
+  },
+  {
+      "question": "What is the activation function used in the dense layer with 128 neurons?",
+      "options": [
+          {"a": "Sigmoid"},
+          {"b": "Rectified Linear"},
+          {"c": "Tanh"}
+      ],
+      "answer": "b"
+  },
+  {
+      "question": "What is the purpose of the output layer in the neural network for clothing type prediction?",
+      "options": [
+          {"a": "To convert the output into a two-dimensional array"},
+          {"b": "To determine the importance of variables"},
+          {"c": "To predict the likelihood of each clothing type"}
+      ],
+      "answer": "c"
+  }
+]
+)
+    
     return jsonify(questionjson)
 
+@app.route('/voice', methods=["GET"])
+def voice():
+    engine = pyttsx3.init()
+    engine.say("What do you want to learn ?")
+    engine.runAndWait()
+    return "successs"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001, debug=True)
