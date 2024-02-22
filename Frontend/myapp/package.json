@@ -18,6 +18,10 @@
     "react-dropzone": "^14.2.3",
     "react-lottie": "^1.2.4",
     "react-quiz-component": "^0.5.1",
+<<<<<<< HEAD
+=======
+    "react-speech": "^1.0.2",
+>>>>>>> a3d658d8f5a8a131575ab983de47f71a9f9a59a6
     "react-speech-kit": "^3.0.1",
     "react-text-gradients": "^1.0.2",
     "react-youtube": "^10.1.0"

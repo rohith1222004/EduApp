@@ -8,6 +8,7 @@ import logo from '../../public/logo.png'
 import styles from './learn.module.css'
 import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
+import { NavBar } from '@/components/NavBar';
 
 function learn() {
   const searchParams = useSearchParams();
@@ -76,7 +77,7 @@ function learn() {
   };
   // formula generation
   function generateFormula() {
-    axios.post("http://127.0.0.1:5000/pdf")
+    axios.post("http://127.0.0.1:5001/pdf")
     .then(async json =>{
       var pdf = new jsPDF({
           orientation:'p', 
@@ -92,7 +93,8 @@ function learn() {
   return (
     <div>
       {/* Nav Bar */}
-      <div className={styles.navbar}>
+      
+      {/* <div className={styles.navbar}>
         <div>
           <Image 
             className={styles.navbar__logo}
@@ -103,13 +105,12 @@ function learn() {
 
         <div className={styles.navbar__menu}>
           <a href="/">Dashboard</a>
-          {/* <a href="/Learn">Learn</a> */}
           <a href="/QuizPage">Quiz</a>
           <a href="#" onClick={generateFormula()} >Formula</a>
           <a href="/Remainders">Remainders</a>
         </div>  
-      </div>
-
+      </div> */}
+      <NavBar/>
       {/* Learn Section */}
 
       <div className={styles.learn}>
