@@ -59,11 +59,12 @@ def OfflineVideoUpload():
 
 @app.route("/uploadLink", methods=["POST"])
 def upload():
+
     global ytvectorDB
 
-    if 'ytvectorDB' in globals():
-        ytvectorDB.delete_cluster()
-        print("CALLE DELETE CLUSTEER")
+    # if 'ytvectorDB' in globals():
+    #     ytvectorDB._client.delete_cluster("testing")
+    #     print("CALLED DELETE CLUSTEER")
 
     url = request.json.get('url')
     
@@ -150,7 +151,7 @@ def pdf():
 
 @app.route("/quiz", methods=["POST"])
 def quiz():
-    quiz = 'give me 3 multiple choice question using provided context in json array format.The json format should be like this[{"question" :"","options":[{"opt1":"","opt2":"",...}],"answer":"<correct-answer>"},{"question" :"","options":[{"opt1":"","opt2":"",...}],"answer":"<correct-answer>"}...]'
+    quiz = 'give me 3 multiple choice question using provided context in json array format.The json format should be like this[{"question" :"","options":[{"a":"option1","b":"option2",...}],"answer":"<correct-answer>"},{"question" :"","options":[{"a":"option1","option2":"",...}],"answer":"<correct-answer>"}...]'
     qa_chain = RetrievalQA.from_chain_type(
         llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0),
         chain_type="stuff",
