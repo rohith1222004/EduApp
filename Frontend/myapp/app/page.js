@@ -10,6 +10,7 @@ import YouTube from "react-youtube";
 
 import axios from 'axios';
 import { LinearGradient } from 'react-text-gradients'
+import { NavBar } from '@/components/NavBar';
 
 
 
@@ -60,8 +61,9 @@ export default function Home() {
 
   return (
     <div>
+      <NavBar/>
       {/* Nav Bar */}
-      <div className={styles.navbar_wrap}>
+      {/* <div className={styles.navbar_wrap}>
       <div className={styles.navbar}>
         <div>
           <Image 
@@ -69,17 +71,16 @@ export default function Home() {
             src={logo}
             alt="logo" 
           />
-        </div>
+        </div> */}
 
-        <div className={styles.navbar__menu}>
-          <a href="#">Dashboard</a>
+        {/* <div className={styles.navbar__menu}> */}
+          {/* <a href="#">Dashboard</a> */}
           {/* <a href="/Learn">Learn</a> */}
-          <a href="/QuizPage">Quiz</a>
-          <a href="#" onClick={() =>{console.log("hello")}}>Formula</a>
-          {/* <button onClick={() =>{console.log("hello")}}>Formula</button> */}
-          <a href="/Remainders">Remainders</a>
-        </div>  
-      </div>
+          {/* <a href="/QuizPage">Quiz</a> */}
+          {/* <a href="#" onClick={() =>{console.log("hello")}}>Formula</a> */}
+          {/* <a href="/Remainders">Remainders</a>
+        </div>   */}
+      {/* </div> */}
 
       {/* Video Link Paste / Upload Section */}
       <div className={styles.videoUpload}>
@@ -137,6 +138,6 @@ export default function Home() {
         </div>
       </div>
       </div>
-    </div>
+    // </div>
   )
 }

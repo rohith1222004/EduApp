@@ -6,9 +6,13 @@ import 'react-chat-widget/lib/styles.css';
 import Image from 'next/image'
 import logo from '../../public/logo.png'
 import styles from './quizPage.module.css'
+import axios from 'axios';
+import { jsPDF } from "jspdf";
+import { NavBar } from '@/components/NavBar';
+
 
 function QuizPage() {
-
+  const doc = new jsPDF();
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
@@ -30,11 +34,12 @@ function QuizPage() {
       setInputValue('');
     }
   };
-  const hanleFormulaClick = (event) =>{
-    event.preventDefault();
+  const handleFormulaClick = () =>{
     console.log("formula click"); 
     axios.post("http://127.0.0.1:5001/pdf").then(res => {
-      console.log(res);
+      console.log(res.data);
+      doc.text(res.data, 10, 10);
+      doc.save("a4.pdf");
     }).catch(err => {
       console.log(err);
     })
@@ -44,7 +49,7 @@ function QuizPage() {
   return (
     <div>
       {/* Nav Bar */}
-      <div className={styles.navbar}>
+      {/* <div className={styles.navbar}>
         <div>
           <Image 
             className={styles.navbar__logo}
@@ -55,12 +60,12 @@ function QuizPage() {
 
         <div className={styles.navbar__menu}>
           <a href="/">Dashboard</a>
-          {/* <a href="/Learn">Learn</a> */}
           <a href="/QuizPage">Quiz</a>
-          <a onClick={hanleFormulaClick}>Formula</a>
+          <a href="#" onClick={handleFormulaClick}>Formula</a>
           <a href="/Remainders">Remainders</a>
         </div>  
-      </div>
+      </div> */}    
+      <NavBar/>
 
       {/* Learn Section */}
 

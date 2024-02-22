@@ -7,7 +7,7 @@ from langchain_community.vectorstores import Bagel
 
 
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 embeddings = OpenAIEmbeddings()
 

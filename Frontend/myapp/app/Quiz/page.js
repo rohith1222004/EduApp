@@ -1,14 +1,17 @@
 "use client";
 import React,{useEffect} from 'react'
 import Quiz from 'react-quiz-component'
+// import { quizData } from '@/components/quiz';
 import axios from 'axios';
+import { NavBar } from '@/components/NavBar';
 
 function quiz() {
+  let quizData
   useEffect(() => {
-    axios.post('http://127.0.0.1:5000/quiz')
+    axios.post('http://127.0.0.1:5001/quiz')
     .then(function (res) {
       console.log(res.data);
-      const quiz =  {
+      quizData =  {
         "questions": [
           {
             "question": res[i].question,
@@ -33,12 +36,16 @@ function quiz() {
     .catch(function (error) {
       console.log(error);
     })
-
   });
 
 
   return (
-    <div>Quiz</div>
+    <div>
+      <NavBar/>
+      <div>
+        <Quiz quiz={quizData}/>
+      </div>
+    </div>
   )
 }
 

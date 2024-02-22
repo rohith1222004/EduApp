@@ -142,10 +142,10 @@ def YTVideoQuery():
 @app.route("/pdf", methods=["POST"])
 def pdf():
     # pdf = "give me the formula alone."
-    pf = "Generate a notes."
+    pdf = "Generate a notes."
     pdfGeneration = qa_chain.run(pdf)
-    pdfFormated = pdfGeneration.replace("\n", "<br>")
-    return jsonify(pdfFormated)
+    # pdfFormated = pdfGeneration.replace("\n", "<br>")
+    return jsonify(pdfGeneration)
 
 
 @app.route("/quiz", methods=["POST"])
