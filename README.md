@@ -1,8 +1,8 @@
-## PROBLEM STATEMENT
+### PROBLEM STATEMENT
 
 Students often struggle to efficiently utilize video lectures and study materials due to the time-consuming process of watching and understanding the content. They also face challenges organizing their study schedules, generating notes, and quickly accessing relevant information within lengthy videos.
 
-# QuickLearn MindMap Generator
+# QuickLearn (Solution)
 
 ![QuickLearn Logo](images/logo.png)
 
