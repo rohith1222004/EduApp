@@ -1,8 +1,8 @@
-# Problem Statement
+# Problem Statement❗ 
 
 Students often struggle to efficiently utilize video lectures and study materials due to the time-consuming process of watching and understanding the content. They also face challenges organizing their study schedules, generating notes, and quickly accessing relevant information within lengthy videos.
 
-# QuickLearn (Solution)
+# QuickLearn (Solution)✨ 
 
 ### 1. Transcript Generation
 Utilizes Whisper, an automatic speech recognition system, to generate transcripts from video and audio files. This eliminates manual transcription and helps students learn even when they're not fully focused.
