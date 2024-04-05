@@ -32,7 +32,7 @@ Provides reference timestamps in video answers, allowing students to quickly loc
 Generates PDF quick notes summarizing video lecture content and identifies and extracts formulas, providing consolidated resources for students.
 
 ## Build With
-<img src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png">
+<img src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" width=50 height=50>
 
 ## Installation
 
