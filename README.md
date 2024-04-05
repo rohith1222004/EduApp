@@ -1,13 +1,8 @@
-### PROBLEM STATEMENT
+# Problem Statement
 
 Students often struggle to efficiently utilize video lectures and study materials due to the time-consuming process of watching and understanding the content. They also face challenges organizing their study schedules, generating notes, and quickly accessing relevant information within lengthy videos.
 
 # QuickLearn (Solution)
-
-![QuickLearn Logo](images/logo.png)
-
-QuickLearn is a mind map generator designed to facilitate quick learning based on provided videos. With QuickLearn, you can easily visualize and understand the key concepts presented in your educational videos, making learning more efficient and engaging.
-
 ## Features
 
 ### 1. Transcript Generation
