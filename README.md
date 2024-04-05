@@ -10,8 +10,8 @@ QuickLearn is a mind map generator designed to facilitate quick learning based o
 
 ## Features
 
-### 1. Video Analysis
-QuickLearn analyzes the content of provided videos, extracting key concepts, topics, and relationships.
+### Transcript Generation
+Utilizes Whisper, an automatic speech recognition system, to generate transcripts from video and audio files. This eliminates manual transcription and helps students learn even when they're not fully focused.
 
 ### 2. Mind Map Generation
 Based on the video analysis, QuickLearn generates a visually appealing mind map that organizes the information hierarchically.
